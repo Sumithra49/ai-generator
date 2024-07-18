@@ -9,19 +9,29 @@ const router = Router();
 // Configure Multer to store uploaded files in the 'uploads' directory
 const upload = multer({ dest: "uploads/" });
 
-// Route to handle text prompt
 router.post("/prompt-post", async (req, res) => {
   try {
     const { prompt } = req.body;
+    if (!prompt) {
+      return res.status(400).json({ error: "Prompt is required" });
+    }
+
     const response = await run(prompt);
     res.json(response);
   } catch (error) {
-    console.log(error);
+    console.error("Error in /prompt-post route:", error);
+    if (error.response && error.response.data) {
+      // Handle specific error types from the Generative AI service
+      if (error.response.data.errorDetails) {
+        const errorDetails = error.response.data.errorDetails[0];
+        if (errorDetails.reason === "API_KEY_INVALID") {
+          return res.status(403).json({ error: "Invalid API key" });
+        }
+      }
+    }
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
-
-// Route to handle file uploads
 router.post("/upload", upload.single("file"), async (req, res) => {
   try {
     // Read the uploaded file
@@ -31,12 +41,12 @@ router.post("/upload", upload.single("file"), async (req, res) => {
     // Process the file content using the run function
     const response = await run(fileContent);
 
-    // Do not delete the uploaded file
+    // Optionally delete the uploaded file after processing
     // fs.unlinkSync(filePath);
 
     res.json({ summary: response });
   } catch (error) {
-    console.log(error);
+    console.error("Error in /upload route:", error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
