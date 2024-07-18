@@ -25,7 +25,7 @@ router.post("/prompt-post", async (req, res) => {
 });
 
 // Route to handle file uploads
-rrouter.post("/upload", upload.single("file"), async (req, res) => {
+router.post("/upload", upload.single("file"), async (req, res) => {
   try {
     const file = req.file;
     if (!file) {
