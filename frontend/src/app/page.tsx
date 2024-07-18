@@ -23,17 +23,18 @@ const CombinedForm: React.FC = () => {
   const handleSubmit = async () => {
     try {
       if (prompt.trim() !== '') {
-        const response = await axios.post('http://localhost:5000/api/prompt-post', {
+        const response = await axios.post('https://ai-generator-1.onrender.com/api/prompt-post', {
           prompt: prompt,
         });
         setSummary(response.data);
+        console.log(response.data);
         setPrompt('');
         setSummaryDownloadLink(null); // Reset download link if new summary is generated
       } else if (file) {
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await axios.post('http://localhost:5000/api/upload', formData, {
+        const response = await axios.post('https://ai-generator-1.onrender.com/api/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
