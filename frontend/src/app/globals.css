@@ -1,0 +1,20 @@
+/* styles/globals.css */
+/* Global styles */
+body {
+  font-family: 'Arial', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+/* Specific styles for components */
+.toastify-container {
+  z-index: 9999;
+  font-size: 14px;
+}
+
+.toastify-content {
+  background-color: #333;
+  color: #fff;
+  font-weight: bold;
+  border-radius: 4px;
+}
