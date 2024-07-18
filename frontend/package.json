@@ -9,10 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@emotion/react": "^11.11.4",
-    "@emotion/styled": "^11.11.5",
-    "@mui/material": "^5.16.4",
-    "@mui/styles": "^5.16.4",
+   
+   
     "axios": "^1.7.2",
     "chart.js": "^4.4.3",
     "formidable": "^3.5.1",
