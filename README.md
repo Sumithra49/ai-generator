@@ -1,7 +1,7 @@
 # ai-generator
-backend:https://ai-generator-4.onrender.com/
+backend:https://ai-generator-5.onrender.com/
 
-frontend:https://ai-generator-sp33.vercel.app/
+frontend:https://ai-generator-virid.vercel.app/
 # AI-Powered Content Summarization and Analysis Tool
 
 ## Description
