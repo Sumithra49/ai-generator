@@ -17,7 +17,7 @@ The AI-Powered Content Summarization and Analysis Tool is a web application that
 
 ## Tech Stack
 
-- **Front-End**: React.js with Material-UI for the user interface.
+- **Front-End**: Next.js with Material-UI for the user interface.
 - **Back-End**: Node.js with Express.js for API endpoints.
 - **AI Service**: Integration with an AI service (e.g., Google Cloud Natural Language API) for text processing.
 
