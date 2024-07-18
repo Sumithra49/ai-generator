@@ -29,7 +29,7 @@ const CombinedForm: React.FC = () => {
         setSummary(response.data);
         console.log(response.data);
         setPrompt('');
-        setSummaryDownloadLink(null); // Reset download link if new summary is generated
+        setSummaryDownloadLink(null); 
       } else if (file) {
         const formData = new FormData();
         formData.append('file', file);
@@ -42,7 +42,7 @@ const CombinedForm: React.FC = () => {
 
         setSummary(response.data.summary);
         setFile(null);
-        setSummaryDownloadLink(null); // Reset download link if new summary is generated
+        setSummaryDownloadLink(null); 
       }
     } catch (error) {
       console.error('Error submitting prompt or uploading file:', error);
