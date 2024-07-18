@@ -13,13 +13,10 @@ const upload = multer({ dest: "uploads/" });
 router.post("/prompt-post", async (req, res) => {
   try {
     const { prompt } = req.body;
-    if (!prompt || typeof prompt !== "string") {
-      return res.status(400).json({ error: "Invalid prompt" });
-    }
     const response = await run(prompt);
     res.json(response);
   } catch (error) {
-    console.error("Error processing /prompt-post request:", error);
+    console.log(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
@@ -27,15 +24,21 @@ router.post("/prompt-post", async (req, res) => {
 // Route to handle file uploads
 router.post("/upload", upload.single("file"), async (req, res) => {
   try {
-    const file = req.file;
-    if (!file) {
-      return res.status(400).json({ error: "No file uploaded" });
-    }
-    const response = await processFile(file); // Replace with actual file processing logic
+    // Read the uploaded file
+    const filePath = req.file.path;
+    const fileContent = fs.readFileSync(filePath, "utf-8");
+
+    // Process the file content using the run function
+    const response = await run(fileContent);
+
+    // Do not delete the uploaded file
+    // fs.unlinkSync(filePath);
+
     res.json({ summary: response });
   } catch (error) {
-    console.error("Error processing /upload request:", error);
+    console.log(error);
     res.status(500).json({ error: "Internal Server Error" });
   }
 });
+
 module.exports = router;
