@@ -1,0 +1,82 @@
+
+Questions - :
+
+Project Based Questions-:
+1. What is the scope of the project? Why did you choose the same?
+Scope of the project: The scope of the project was to develop RecipeGenius, an innovative recipe recommendation application. We chose this scope because there was a gap in the market for a personalized recipe discovery platform that caters to individual preferences and dietary restrictions.
+
+
+2 ) Can you walk me through the most challenging technical problem you encountered in your project and how you resolved it?
+
+One of the most challenging technical problems we encountered was optimizing the search functionality to deliver fast and accurate results from a vast database of recipes. We resolved it by implementing efficient indexing and caching mechanisms, as well as optimizing database queries.
+
+3) What specific technologies did you use, and why did you choose them for this project?
+
+Front-end:
+React for dynamic user interfaces.
+Redux for state management.
+Chakra UI for component styling.
+Axios for handling HTTP requests.
+Back-end:
+Node.js with Express for RESTful API services.
+MongoDB for flexible data storage.
+JWT for secure user authentication.
+
+
+4) Did you encounter any performance issues? How did you identify and address them?
+Yes, we encountered performance issues during peak usage times. We identified them through monitoring tools and load testing. To address them, we optimized database queries, implemented caching strategies, and scaled up our server infrastructure.
+
+5) Can you explain a situation where you had to make a critical decision that impacted the project's direction?
+
+One critical decision was choosing between a monolithic and microservices architecture. We opted for a monolithic architecture initially for simplicity and faster development. However, as the project grew, we transitioned to a microservices architecture to improve scalability and maintainability.
+
+
+6) How did you manage version control and collaboration in your project?
+We used Git for version control and collaborated using platforms like GitHub . We followed a Git branching model such as Gitflow and utilized pull requests for code review and collaboration.
+
+7) Were there any trade-offs you had to make while working on the project? How did you prioritise?
+ne trade-off was sacrificing some features for the initial release to meet deadlines. We prioritized essential features and planned to iterate and add more features in subsequent releases based on user feedback.
+
+8) Describe a piece of feedback you received on your project and how you implemented it.
+One feedback we received was to improve the user interface for recipe browsing. We implemented this by redesigning the recipe cards, adding filters, and improving search functionality based on user preferences.
+
+9) What would you do differently if you were to start this project over again?
+If starting over, we would allocate more time for thorough testing and incorporate user feedback earlier in the development process to ensure a more polished and user-friendly product.
+
+10)Can you explain the architecture of your project? Why was it designed this way?"
+Our project follows a client-server architecture. The frontend is built using React, which communicates with the backend RESTful API built with Node.js and Express. MongoDB is used as the database for storing recipe and user data. This architecture was chosen for its scalability, flexibility, and ease of development.
+
+11)How did you ensure the scalability and security of your project?"
+We ensured scalability by designing our backend to be horizontally scalable, allowing us to add more server instances to handle increased load. Security measures like JWT for authentication, input validation, and role-based access control were implemented to protect user data and prevent unauthorized access.
+
+12)How did you collaborate with other team members on this project? Can you give an example of how you resolved a conflict or a disagreement?"
+We collaborated using Agile methodologies like Scrum or Kanban. In situations of conflict or disagreement, we held open discussions, considered each team member's perspective, and reached a consensus through compromise or by deferring to the team lead.
+
+13)Describe a situation where you had to incorporate feedback from others into your project.
+
+We incorporated feedback by regularly reviewing and prioritizing user feedback. We held feedback sessions where team members discussed the feedback received, evaluated its validity and feasibility, and incorporated actionable feedback into our development sprints.
+
+
+
+15)How did you collaborate with other team members on this project? Can you give an example of how you resolved a conflict or a disagreement?"
+We collaborated through regular meetings, communication channels like Slack or Microsoft Teams, and watsapp,googlemeet. In resolving conflicts, we encouraged open communication, active listening, and empathy towards each other's viewpoints.
+
+16)"Describe a situation where you had to incorporate feedback from others into your project."
+We incorporated feedback by discussing it as a team, analyzing its impact on the project goals, and prioritizing actionable feedback in our development roadmap. Each team member was responsible for implementing feedback relevant to their assigned tasks.
+
+
+17)What was your contribution to the project?
+
+My contribution to the project involved frontend development using React, implementing user authentication and authorization, and optimizing frontend performance. Additionally, I participated in code reviews, provided feedback on design and architecture decisions, and collaborated with team members to deliver a high-quality product.
+
+
+
+
+
+
+
+
+
+
+
+

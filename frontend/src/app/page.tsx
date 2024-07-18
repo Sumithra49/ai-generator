@@ -68,7 +68,7 @@ const CombinedForm: React.FC = () => {
   const handleSubmit = async () => {
     try {
       if (prompt.trim() !== '') {
-        const response = await axios.post('https://ai-generator-1.onrender.com/api/prompt-post', {
+        const response = await axios.post('http://localhost:5000/api/prompt-post', {
           prompt: prompt,
         });
         setSummary(response.data);
@@ -78,7 +78,7 @@ const CombinedForm: React.FC = () => {
         const formData = new FormData();
         formData.append('file', file);
 
-        const response = await axios.post('https://ai-generator-1.onrender.com/api/upload', formData, {
+        const response = await axios.post('http://localhost:5000/api/upload', formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -109,7 +109,7 @@ const CombinedForm: React.FC = () => {
     <div className={classes.root}>
       <h1>AI-Powered Content Summarization and Analysis Tool</h1>
       {summary && (
-        <div className={classes.summaryContainer}>
+        <div className={classes.summaryContainer} style={{backgroundColor:"black",color:"white"}}>
           <h3 className={classes.summaryHeader}>Summary</h3>
           {summary.split('\n').map((item, index) => (
             <p key={index} className={classes.summaryParagraph}>{item}</p>
