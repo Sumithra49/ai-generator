@@ -1,61 +1,16 @@
-"use client"
+"use client";
 
-import React from 'react';
-
-
-import { Button, TextField } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import axios from 'axios';
-import { useState } from 'react';
-
-const useStyles = makeStyles({
-  root: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    margin: '20px',
-  },
-  fileInput: {
-    display: 'none',
-  },
-  buttonContainer: {
-    marginTop: '10px',
-    width: '100%',
-    maxWidth: '900px',
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '10px',
-  },
-  summaryContainer: {
-    marginTop: '20px',
-    marginBottom: '20px',
-    textAlign: 'left',
-    border: '1px solid #ccc',
-    padding: '10px',
-    borderRadius: '5px',
-    boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
-    width: '100%',
-    maxWidth: '900px',
-  },
-  summaryHeader: {
-    fontSize: '1.5rem',
-    fontWeight: 'bold',
-    marginBottom: '10px',
-  },
-  summaryParagraph: {
-    marginBottom: '10px',
-  },
-});
+import React, { useState } from 'react';
+import './globals.css';
 
 const CombinedForm: React.FC = () => {
-  const classes = useStyles();
-
   const [prompt, setPrompt] = useState<string>('');
   const [file, setFile] = useState<File | null>(null);
   const [summary, setSummary] = useState<string | null>(null);
   const [summaryDownloadLink, setSummaryDownloadLink] = useState<string | null>(null);
 
-  const handlePromptChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePromptChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPrompt(event.target.value);
   };
 
@@ -72,6 +27,7 @@ const CombinedForm: React.FC = () => {
           prompt: prompt,
         });
         setSummary(response.data);
+        console.log(response.data);
         setPrompt('');
         setSummaryDownloadLink(null); // Reset download link if new summary is generated
       } else if (file) {
@@ -106,51 +62,50 @@ const CombinedForm: React.FC = () => {
   };
 
   return (
-    <div className={classes.root}>
+    <div className="root">
       <h1>AI-Powered Content Summarization and Analysis Tool</h1>
       {summary && (
-        <div className={classes.summaryContainer} style={{backgroundColor:"black",color:"white"}}>
-          <h3 className={classes.summaryHeader}>Summary</h3>
+        <div className="summaryContainer" style={{backgroundColor:"black",color:"white"}}>
+          <h3 className="summaryHeader">Summary</h3>
           {summary.split('\n').map((item, index) => (
-            <p key={index} className={classes.summaryParagraph}>{item}</p>
+            <p key={index} className="summaryParagraph">{item}</p>
           ))}
           {summaryDownloadLink && (
-            <Button variant="contained" color="primary" download="summary.txt" href={summaryDownloadLink} style={{ marginLeft: '10px' }}>
+            <a
+              className="button"
+              download="summary.txt"
+              href={summaryDownloadLink}
+              style={{ marginLeft: '10px' }}
+            >
               Download Summary
-            </Button>
+            </a>
           )}
         </div>
       )}
-      <TextField
+      <textarea
         id="prompt-input"
-        label="Enter your prompt or upload a file"
-        variant="outlined"
+        placeholder="Enter your prompt or upload a file"
         value={prompt}
         onChange={handlePromptChange}
-        fullWidth
-        multiline
-        margin="normal"
-        style={{ marginBottom: '10px', width: '50%' }}
-      />
-      <div className={classes.buttonContainer}>
+        className="textInput"
+      ></textarea>
+      <div className="buttonContainer">
         <input
           accept=".txt,.html,.doc,.docx"
-          className={classes.fileInput}
+          className="fileInput"
           id="upload-file"
           type="file"
           onChange={handleFileChange}
         />
-        <label htmlFor="upload-file">
-          <Button variant="contained" component="span">
-            Upload File
-          </Button>
+        <label htmlFor="upload-file" className="button">
+          Upload File
         </label>
-        <Button variant="contained" onClick={handleSubmit}>
+        <button onClick={handleSubmit} className="button">
           Submit
-        </Button>
-        <Button variant="contained" onClick={handleDownload}>
+        </button>
+        <button onClick={handleDownload} className="button">
           Download
-        </Button>
+        </button>
       </div>
     </div>
   );
