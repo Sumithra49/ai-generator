@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import axios from 'axios';
 import React, { useState } from 'react';
@@ -10,7 +10,7 @@ const CombinedForm: React.FC = () => {
   const [summary, setSummary] = useState<string | null>(null);
   const [summaryDownloadLink, setSummaryDownloadLink] = useState<string | null>(null);
 
-  const handlePromptChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePromptChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPrompt(event.target.value);
   };
 
@@ -64,7 +64,7 @@ const CombinedForm: React.FC = () => {
     <div className="root">
       <h1>AI-Powered Content Summarization and Analysis Tool</h1>
       {summary && (
-        <div className="summaryContainer">
+        <div className="summaryContainer" style={{backgroundColor:"black",color:"white"}}>
           <h3 className="summaryHeader">Summary</h3>
           {summary.split('\n').map((item, index) => (
             <p key={index} className="summaryParagraph">{item}</p>
